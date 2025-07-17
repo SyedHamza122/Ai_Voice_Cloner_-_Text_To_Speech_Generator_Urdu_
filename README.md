@@ -1,16 +1,12 @@
 # Ai_Voice_Cloner_-_Text_To_Speech_Generator_Urdu_
 # ✅ Coqui TTS (for English custom voice)
 !pip install TTS==0.22.0
-
 # ✅ Urdu TTS (Google TTS)
 !pip install gtts
-
 # ✅ For converting MP3 → WAV
 !pip install pydub
-
 # ✅ For web app UI
 !pip install gradio
-
 # ✅ Required system tool for pydub
 !apt install ffmpeg -y
 ##
@@ -19,7 +15,6 @@ from gtts import gTTS
 from pydub import AudioSegment
 import gradio as gr
 import os
-
 # ✅ Built-in model (English, cloned or generic voice)
 tts_en = TTS(model_name="tts_models/en/ljspeech/tacotron2-DDC", progress_bar=False, gpu=False)
 ##
@@ -37,7 +32,6 @@ def generate_tts(text, language):
         return "output_ur.wav"
  ##
  import gradio as gr  
-
 interface = gr.Interface(
     fn=generate_tts,
     inputs=[
@@ -48,5 +42,4 @@ interface = gr.Interface(
     title="Custom AI Voice Cloner & Urdu TTS Generator",
     description="Enter English for cloned voice or Urdu for natural TTS"
 )
-
 interface.launch(share=True)
